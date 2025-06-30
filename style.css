@@ -116,8 +116,14 @@ button:hover {
 }
 
 .hole.mole {
-  background: #b3e5fc; /* Light sky blue */
-  background-size: 75% auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  background-color: #c0e57b; /* optional highlight for mole */
+}
+.hole.mole::before {
+  content: "🐹";
 }
 
 
