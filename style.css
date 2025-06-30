@@ -116,7 +116,7 @@ button:hover {
 }
 
 .hole.mole {
-  background: url('https://i.imgur.com/2UdPSO6.png') center center no-repeat;
+  background: #b3e5fc; /* Light sky blue */
   background-size: 75% auto;
 }
 
