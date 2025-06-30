@@ -1,0 +1,300 @@
+/* General body and background */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #87ceeb 0%, #9be7ff 50%, #c0f4ff 100%);
+  overflow-x: hidden;
+}
+
+/* Intro and Game Screens */
+.screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 20px;
+  background: url('https://i.imgur.com/2vSPOjN.jpg') no-repeat center center/cover;
+}
+
+/* Overlay to brighten background */
+.screen::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(255,255,255,0.4);
+  z-index: 0;
+}
+
+.screen > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Title and tagline */
+.game-title {
+  font-size: 3rem;
+  margin-bottom: 0.3em;
+  color: #444;
+  text-shadow: 2px 2px 3px #fff;
+}
+
+.tagline {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 2em;
+}
+
+/* Difficulty selection */
+#difficulty-selection {
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+}
+
+#difficulty-selection label {
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+#difficulty-selection input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* Buttons */
+button {
+  background-color: #ffcc00;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 2px 4px 6px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ffaa00;
+  color: #fff;
+}
+
+/* Score panel and round display */
+.score-panel {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: #333;
+}
+
+#roundDisplay {
+  font-size: 1.3rem;
+  margin-bottom: 1.2em;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Grid of holes */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.hole {
+  background: #6a8e2f;
+  border-radius: 50%;
+  box-shadow: inset 3px 3px 8px #49631a;
+  cursor: pointer;
+  position: relative;
+}
+
+.hole.mole {
+  background: url('https://i.imgur.com/2UdPSO6.png') center center no-repeat;
+  background-size: 75% auto;
+}
+
+
+/* RESULT MODAL POPUP styles */
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.modal-popup {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  max-width: 400px;
+  width: 90%;
+  padding: 40px 30px 30px 30px;
+  position: relative;
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #444;
+  overflow: visible;
+}
+
+/* Cute dog image holding the popup */
+.dog-image {
+  position: absolute;
+  top: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Modal text */
+.modal-popup h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: #2f4f4f;
+}
+
+.modal-popup p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* Restart button inside modal */
+/* Cute Restart Button */
+#restartBtn {
+  background-color: #ff8da1; /* soft pink */
+  color: white;
+  font-weight: 700;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  box-shadow: 0 8px 15px rgba(255, 141, 161, 0.4);
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+  outline: none;
+  /* prepare for animation */
+  transform-origin: center;
+}
+
+/* Paw emoji before text */
+#restartBtn::before {
+  content: "🐾";
+  font-size: 1.5rem;
+}
+
+/* Hover animation */
+#restartBtn:hover {
+  animation: bounceWiggle 0.6s ease forwards;
+  box-shadow: 0 12px 20px rgba(255, 141, 161, 0.6);
+}
+
+/* Remove animation after hover ends */
+#restartBtn:not(:hover) {
+  animation: none;
+}
+
+/* Press effect */
+#restartBtn:active {
+  transform: scale(0.95);
+  box-shadow: 0 6px 10px rgba(255, 141, 161, 0.3);
+}
+
+/* Bounce + wiggle keyframes */
+@keyframes bounceWiggle {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  30% {
+    transform: translateY(-8px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(0) rotate(5deg);
+  }
+  70% {
+    transform: translateY(-4px) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* Cute Restart Button */
+#restartBtn {
+  background-color: #ff8da1; /* soft pink */
+  color: white;
+  font-weight: 700;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  box-shadow: 0 8px 15px rgba(255, 141, 161, 0.4);
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+/* Add a cute paw emoji before the text */
+#restartBtn::before {
+  content: "🐾";
+  font-size: 1.5rem;
+}
+
+/* Hover effect: gentle scale + shadow pop */
+#restartBtn:hover {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 0 12px 20px rgba(255, 141, 161, 0.6);
+}
+
+/* Optional: active press effect */
+#restartBtn:active {
+  transform: scale(0.95) rotate(0deg);
+  box-shadow: 0 6px 10px rgba(255, 141, 161, 0.3);
+}
+
+#restartBtn:hover {
+  background-color: #3bb45e;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 10px;
+  }
+
+  .hole {
+    width: 80px;
+    height: 80px;
+  }
+
+  .dog-image {
+    width: 120px;
+    top: -70px;
+  }
+
+  .modal-popup {
+    padding: 30px 20px 25px 20px;
+  }
+}

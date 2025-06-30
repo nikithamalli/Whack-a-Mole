@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Whack-a-Mole Challenge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- INTRO SCREEN -->
+  <div id="intro-screen" class="screen">
+    <h1 class="game-title">🐹 Whack-a-Mole Challenge!</h1>
+    <p class="tagline">Think you're fast enough? Let's find out!</p>
+
+    <div id="difficulty-selection">
+      <label><input type="radio" name="difficulty" value="easy" checked /> Easy</label>
+      <label><input type="radio" name="difficulty" value="medium" /> Medium</label>
+      <label><input type="radio" name="difficulty" value="hard" /> Hard</label>
+    </div>
+
+    <button id="playBtn">▶ Start Game</button>
+  </div>
+
+  <!-- MAIN GAME SCREEN -->
+  <div id="game-screen" class="screen" style="display: none;">
+    <div class="container">
+      <h1>🐹 Whack-a-Mole!</h1>
+      <div class="score-panel">Score: <span id="score">0</span></div>
+      <div id="roundDisplay">Round: 1</div>
+
+      <div class="grid" id="grid">
+        <div class="hole" id="1"></div>
+        <div class="hole" id="2"></div>
+        <div class="hole" id="3"></div>
+        <div class="hole" id="4"></div>
+        <div class="hole" id="5"></div>
+        <div class="hole" id="6"></div>
+        <div class="hole" id="7"></div>
+        <div class="hole" id="8"></div>
+        <div class="hole" id="9"></div>
+      </div>
+
+      <button id="startBtn">Start Round 1</button>
+    </div>
+    <audio id="hitSound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
+  </div>
+
+  <!-- RESULT MODAL POPUP -->
+  <div id="result-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-popup">
+    
+      <div class="modal-content">
+        <h2 id="result-title"></h2>
+        <p id="final-score"></p>
+        <p id="result-message"></p>
+        <button id="restartBtn">🔁 Restart Game</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
